@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hora – Quotation Builder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">H</span><div><h1>Hora</h1><p>Quotation Builder</p></div></div>
+  <div class="actions">
+    <button class="btn ghost" data-a="reset">Reset</button>
+    <button class="btn primary" data-a="export">⬇ Export to Word</button>
+  </div>
+</header>
+
+<main>
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <section class="card">
+    <h2>Quotation details</h2>
+    <div class="grid2">
+      <label>Quotation No.<input id="quoteNo" placeholder="e.g. 1004"></label>
+      <label>Date<input id="quoteDate" type="date"></label>
+      <label>Client name (TO)<input id="toName" placeholder="e.g. OMEGA HOSPITAL, PONDICHERRY"></label>
+      <label>Client address (optional)<input id="toAddr" placeholder="Street, city, PIN"></label>
+    </div>
+  </section>
+
+  <div id="sections"></div>
+
+  <button class="btn add-sec" data-a="add-sec">＋ Add new table</button>
+
+  <section class="card">
+    <h2>Word file options</h2>
+    <label class="switch"><input type="checkbox" id="showSum" checked>
+      <span>Show grand sum (all tables combined) at the end</span></label>
+    <label>Terms &amp; Conditions (printed on page 2; lines starting with * are sub-points; clear to skip)
+      <textarea id="terms" rows="9"></textarea></label>
+  </section>
+
+  <section class="card summary">
+    <div><span>Total (excl. GST)</span><b id="g-base">0.00</b></div>
+    <div><span>Total GST</span><b id="g-tax">0.00</b></div>
+    <div class="big"><span>Grand total (incl. GST)</span><b id="g-total">0.00</b></div>
+    <div class="internal"><span>Internal only – never exported</span>
+      Dealer cost <b id="g-dealer">0.00</b> · Profit <b id="g-profit">0.00</b></div>
+  </section>
+</main>
+
+<datalist id="gstlist"></datalist>
+<script src="https://cdn.jsdelivr.net/npm/docx@7.8.2/build/index.js"></script>
+<script src="logo.js"></script>
+<script src="hsn-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
